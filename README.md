@@ -2,103 +2,113 @@
 
 ## Parallel and Distributed SGD: Systems-Level Performance Analysis
 
-This repository contains Assignment 2 for the ML Systems Optimization course.  
-The project investigates how different execution strategies influence the system-level performance of stochastic gradient descent (SGD) without modifying the underlying learning algorithm.
+This repository contains Assignment 2 for the ML Systems Optimization course. The project investigates how different execution strategies influence the system-level performance of stochastic gradient descent (SGD). The study focuses on execution behaviour rather than improving model accuracy.
 
-The focus is on execution efficiency, scalability behaviour, synchronization overhead, and practical runtime constraints from a systems engineering perspective.
-
----
-
-## Project Overview
-
-Rather than improving model accuracy, this study examines how execution architecture affects training performance.
-
-Three execution models are evaluated:
-
-- Serial SGD baseline
-- Shared-memory parallel SGD (lock-free / HOGWILD-style)
-- Distributed data-parallel SGD (model averaging)
-
-Additional experiments extend analysis to explore:
-
-- Parallel scaling behaviour
-- Synchronization frequency trade-offs
-- Workload scalability characteristics
-
-The goal is to understand how theoretical parallelism compares with practical system performance.
+The analysis compares serial execution, shared-memory parallelism using lock-free updates, and distributed data-parallel training with periodic model averaging. Additional experiments explore scalability behaviour, synchronization trade-offs, and workload sensitivity to understand practical system constraints affecting machine learning performance.
 
 ---
 
-## Repository Structure
+## Repository Contents
 
-- `MLSysOptimization-Assignment2.ipynb`  
-  Main notebook containing all experiments, analysis, and visualizations.
-
-- `Assignment2_Report.pdf`  
-  Final written report with structured discussion and system-level insights.
-
-- `README.md`  
-  Repository overview and execution instructions.
+- Jupyter Notebook containing full implementation and experimental analysis.
+- Final report describing design evolution, results, and systems-level insights.
+- Visualizations generated from experimental evaluation.
 
 ---
 
-## Experimental Focus
+## Execution Environment
 
-The experiments isolate execution effects by keeping:
+Experiments were executed using:
 
-- Dataset
-- Model architecture
-- Optimization procedure
-- Hyperparameters
+- Google Colab (CPU runtime)
+- Python 3 environment
+- Jupyter Notebook workflow
 
-constant across implementations.
+Google Colab was used to ensure reproducibility and consistent execution environment.
 
-Performance is evaluated using:
+---
 
-- Training time (wall-clock execution)
-- Prediction accuracy
-- Relative speedup vs serial baseline
+## Technologies Used
+
+- Python 3
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+- Python threading (shared-memory parallel execution)
+- Jupyter Notebook
+- Google Colab
+
+---
+
+## Experimental Overview
+
+The notebook follows an iterative experimental workflow:
+
+1. **Serial SGD Baseline**
+   - Sequential training used as reference performance benchmark.
+
+2. **Shared-Memory Parallel SGD**
+   - Multithreaded execution using lock-free asynchronous updates (HOGWILD-style).
+
+3. **Distributed Data-Parallel SGD**
+   - Independent workers with periodic synchronization via model averaging.
+
+4. **Extended Analysis**
+   - Parallel scaling behaviour
+   - Synchronization frequency analysis
+   - Workload scalability experiments
+
+The objective is to analyse system-level trade-offs including execution overhead, coordination cost, and practical scalability limitations.
 
 ---
 
 ## Key Systems Insights
 
-- Serial execution can outperform parallel approaches when workload size is small.
-- Shared-memory parallelism introduces coordination overhead and Python runtime constraints.
-- Distributed training introduces synchronization and communication trade-offs.
-- Practical scalability depends on workload size, execution environment, and system architecture.
+- Increasing parallelism does not automatically improve performance.
+- Python runtime constraints (e.g., GIL) significantly influence shared-memory parallel execution.
+- Distributed training introduces communication overhead that impacts efficiency.
+- Effective scalability depends on workload size relative to coordination overhead.
 
 ---
 
 ## How to Run
 
 1. Open the Jupyter notebook.
-2. Restart the kernel.
-3. Select **Run All** to execute the complete workflow.
-4. All experiments, analysis sections, and visualizations will be generated automatically.
+2. Restart the kernel/runtime.
+3. Select **Run All** to execute all experiments sequentially.
+4. All results and visualizations will be generated automatically.
 
 ### Note on Reproducibility
 
-Due to system-level factors such as CPU load, thread scheduling, runtime environment behaviour, and lock-free asynchronous execution, exact timing values may vary slightly across runs. While numerical results (e.g., training time) may differ, overall performance trends and system-level insights discussed in the report are expected to remain consistent.
+Due to system-level factors such as CPU load, thread scheduling, runtime environment behaviour, and lock-free asynchronous execution, exact timing values may vary slightly across runs.
+
+While numerical results (e.g., training time) may differ, overall trends and system-level insights discussed in the report are expected to remain consistent.
 
 ---
 
-## Technologies Used
+## Deliverables
 
-- Python
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Multithreading (Python threading module)
+- Notebook implementation (.ipynb / PDF)
+- Final report (PDF)
+- GitHub repository submission
 
 ---
 
 ## References
 
-Key references include work on parallel SGD, distributed training, and lock-free optimization methods such as HOGWILD-style updates.
+[1] S. H. Haji and A. M. Abdulazeez, Comparison of Optimization Techniques Based on Gradient Descent Algorithm: A Review, PJAEE, 2021.  
+[2] M. Zinkevich et al., Parallelized Stochastic Gradient Descent, NIPS, 2010.  
+[3] J. Dean et al., Large Scale Distributed Deep Networks, NIPS, 2012.  
+[4] M. Li et al., Communication Efficient Distributed Machine Learning with the Parameter Server, NIPS, 2014.  
+[5] F. Niu et al., HOGWILD!: A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, NIPS, 2011.  
+[6] Y. Lin et al., Deep Gradient Compression, ICLR, 2018.  
+[7] P. Goyal et al., Accurate Large Minibatch SGD, arXiv, 2017.  
+[8] X. Lian et al., Asynchronous Decentralized Parallel SGD, ICML, 2018.  
+[9] J. Jiang et al., Bagua: Scaling Distributed Learning with System Relaxations, arXiv, 2021.
 
 ---
 
-## Author / Group
+## Authors
 
-Group31 — ML Systems Optimization Course
+Group 31 — ML Systems Optimization Assignment 2

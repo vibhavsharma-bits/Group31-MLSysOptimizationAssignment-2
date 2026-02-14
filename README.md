@@ -2,6 +2,17 @@
 
 ## Parallel and Distributed SGD: Systems-Level Performance Analysis
 
+---
+
+## Quick Submission Overview
+
+📘 Notebook (.ipynb) — executable implementation
+📄 Notebook PDF — exported notebook including full code and outputs
+📑 Final Report PDF — submitted separately via Taxila Assignment Portal (not included in this repository submission)
+🔗 GitHub repository contains all required implementation files
+
+---
+
 This repository contains Assignment 2 for the ML Systems Optimization course. The project investigates how different execution strategies influence the system-level performance of stochastic gradient descent (SGD). The study focuses on execution behaviour rather than improving model accuracy.
 
 The analysis compares serial execution, shared-memory parallelism using lock-free updates, and distributed data-parallel training with periodic model averaging. Additional experiments explore scalability behaviour, synchronization trade-offs, and workload sensitivity to understand practical system constraints affecting machine learning performance.
@@ -11,8 +22,8 @@ The analysis compares serial execution, shared-memory parallelism using lock-fre
 ## Repository Contents
 
 - Jupyter Notebook containing full implementation and experimental analysis.
-- Final report describing design evolution, results, and systems-level insights.
-- Visualizations generated from experimental evaluation.
+- Notebook PDF including code, outputs, and figures.
+- README documentation describing project overview and execution details.
 
 ---
 
@@ -69,6 +80,7 @@ The objective is to analyse system-level trade-offs including execution overhead
 - Python runtime constraints (e.g., GIL) significantly influence shared-memory parallel execution.
 - Distributed training introduces communication overhead that impacts efficiency.
 - Effective scalability depends on workload size relative to coordination overhead.
+- Empirical observations highlight the gap between theoretical parallel scalability and practical system-level performance.
 
 ---
 
@@ -87,11 +99,21 @@ While numerical results (e.g., training time) may differ, overall trends and sys
 
 ---
 
-## Deliverables
+## Assignment Deliverables (Submission Checklist)
 
 - Notebook implementation (.ipynb / PDF)
 - Final report (PDF)
 - GitHub repository submission
+
+---
+
+## Submission Files:
+
+The notebook PDF contains full code, outputs, and figures as required for submission.
+
+1. Notebook (.ipynb) — executable source code
+2. Notebook PDF — exported version including code and outputs (required deliverable)
+3. Report PDF — systems-level analysis report
 
 ---
 

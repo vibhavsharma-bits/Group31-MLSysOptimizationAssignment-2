@@ -107,13 +107,18 @@ While numerical results (e.g., training time) may differ, overall trends and sys
 
 ---
 
-## Submission Files:
+## Submission Files
 
-The notebook PDF contains full code, outputs, and figures as required for submission.
+The notebook PDF contains full source code, outputs, and figures as required for submission.
 
-1. Notebook (.ipynb) — executable source code
-2. Notebook PDF — exported version including code and outputs (required deliverable)
-3. Report PDF — systems-level analysis report
+Files included in this repository:
+
+- Notebook (.ipynb) — executable implementation source code
+- Notebook PDF — exported notebook including code and outputs
+
+Submitted separately via Taxila assignment portal:
+
+- Final Report PDF — systems-level analysis report
 
 ---
 

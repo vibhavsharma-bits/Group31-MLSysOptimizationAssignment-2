@@ -6,10 +6,10 @@
 
 ## Quick Submission Overview
 
-📘 Notebook (.ipynb) — executable implementation
-📄 Notebook PDF — exported notebook including full code and outputs
-📑 Final Report PDF — submitted separately via Taxila Assignment Portal (not included in this repository submission)
-🔗 GitHub repository contains all required implementation files
+- 📘 Notebook (.ipynb) — executable implementation
+- 📄 Notebook PDF — exported notebook including full code and outputs
+- 📑 Final Report PDF — submitted separately via Taxila Assignment Portal (not included in this repository submission)
+- 🔗 GitHub repository contains all required implementation files
 
 ---
 
